@@ -1,0 +1,26 @@
+<h1>Add a new Fortune</h1>
+<hr />
+
+<form role="form" ng-submit="create(fortune)">
+    <div class="form-group">
+        <label for="reporter">Reporter</label>
+        <input type="text" class="form-control sfTypeahead" id="reporter" options="options" datasets="data" placeholder="Enter your pseudo"  ng-model="fortune.reporter">
+        <p class="help-block">This field is not required, report a fortune can be done anonymously.</p>
+    </div>
+    <div class="form-group">
+        <label for="context">Context</label>
+        <input type="text" class="form-control" id="context" placeholder="Enter context" ng-model="fortune.context">
+        <p class="help-block">If your fortune require context, add here an introduction.</p>
+    </div>
+    <div class="form-group">
+        <label>Lines of fortune *</label>
+        <div class="line" ng-repeat="line in fortune.lines">
+            <input type="text" class="form-control form-control-inline userId sfTypeahead" placeholder="Pseudo" options="options" datasets="data" ng-model="line.user_id" required>
+            <input type="text" class="form-control form-control-inline message" placeholder="Text" ng-model="line.message" required>
+        </div>
+        <p class="help-block">You can define only one line or more for a multi-line fortune.</p>
+    </div>
+
+    <a class="btn btn-info" ng-click="addLine()">Add line</a>
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>

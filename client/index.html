@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Fortuuuuuunes !</title>
+    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="views/assets/style.css">
+
+    <!-- Vendors -->
+    <script src="vendor/jquery/dist/jquery.js"></script>
+    <script src="vendor/typeahead.js/dist/typeahead.jquery.js"></script>
+    <script src="vendor/typeahead.js/dist/bloodhound.js"></script>
+    <script src="vendor/angular/angular.js"></script>
+    <script src="vendor/angular-typeahead/angular-typeahead.js"></script>
+    <script src="vendor/angular-route/angular-route.js"></script>
+    <script src="vendor/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="vendor/lodash/dist/lodash.js"></script>
+    <script src="vendor/restangular/dist/restangular.js"></script>
+
+    <!-- App config -->
+    <script src="app.js"></script>
+    <script src="config/constants.js"></script>
+
+    <!-- Directives -->
+    <script src="directives/username.js"></script>
+
+    <!-- Fortunes Module -->
+    <script src="routes/fortunes.js"></script>
+    <script src="controller/fortunes.js"></script>
+    <script src="services/fortunesProvider.js"></script>
+
+    <!-- User Moddule -->
+    <script src="services/userProvider.js"></script>
+
+    <!-- Vote Moddule -->
+    <script src="services/voteProvider.js"></script>
+</head>
+<body ng-app="fortunes">
+    <div class="navbar navbar-inverse" role="navigation">
+        <div class="container">
+            <a class="navbar-brand" href="#">Fortunes</a>
+
+            <ul class="nav navbar-nav">
+                <li><a href="#/add"><i class="glyphicon glyphicon-plus-sign"></i> Add</a></li>
+                <li><a href="#/top10"><i class="glyphicon glyphicon-thumbs-up"></i> Top 10</a></li>
+                <li><a href="#/bad10"><i class="glyphicon glyphicon-thumbs-down"></i> Bad 10</a></li>
+            </ul>
+
+            <form class="navbar-form navbar-right" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Type whatever">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row" ng-view></div>
+    </div>
+</body>
+</html>

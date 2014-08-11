@@ -1,0 +1,24 @@
+<div class="fortune" ng-repeat="fortune in fortunes">
+    <p ng-show="fortune.context" class="context"><span class="openContext">“</span> {{ fortune.context }} <span class="closeContext">”</span></p>
+    <blockquote class="fortune">
+        <div class="line" ng-repeat="line in fortune.lines">
+            <<username>{{ line.user.name }}</username>> : {{ line.message }}
+        </div>
+    </blockquote>
+    <div class="row">
+        <div class="col-lg-10">
+            <p class="help-block">Added by {{ fortune.user.name }} | {{ fortune.created_at | date:'yyyy-MM-dd hh:m' }}</p>
+        </div>
+        <div class="col-lg-2">
+            <div class="input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" ng-click="vote(fortune, -1)" type="button">-</button>
+                </span>
+                <input type="text" class="form-control" disabled value="{{ fortune.vote.total }}">
+                <span class="input-group-btn">
+                    <button class="btn btn-info" ng-click="vote(fortune, 1)" type="button">+</button>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+{
+    "name": "angular-fortunes",
+    "version": "0.0.1",
+    "dependencies": {
+        "angular": "*",
+        "angular-route": "*",
+        "bootstrap": "*",
+        "restangular": "*",
+        "angular-typeahead": "*"
+    }
+}
