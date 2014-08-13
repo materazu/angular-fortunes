@@ -46,7 +46,7 @@ module.exports.create = function(req, res, next) {
 };
 
 module.exports.getAll = function (req, res, next) {
-    Fortune.find({}).populate('user lines').sort({created_at: 'desc'}).exec(function (err, fortunes) {
+    Fortune.find({}).sort({created_at: 'desc'}).populate('user lines').exec(function (err, fortunes) {
         if (err) {
             return next(err);
         }

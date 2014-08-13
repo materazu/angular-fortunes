@@ -1,5 +1,8 @@
 'use strict';
 
+/**
+ * This directive is used to colorize username
+ */
 app
     .directive('username', function () {
         return {

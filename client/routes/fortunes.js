@@ -11,5 +11,13 @@ app.config(
                 'controller': 'fortunesAdd',
                 'templateUrl': pathConstant.views.fortunes.add
             })
+            .when('/top10', {
+                'controller': 'fortunesTop',
+                'templateUrl': pathConstant.views.fortunes.list
+            })
+            .when('/bad10', {
+                'controller': 'fortunesBad',
+                'templateUrl': pathConstant.views.fortunes.list
+            })
     }
 )

@@ -2,7 +2,7 @@
 
 app
     /**
-     *
+     * List of all fortunes
      */
     .controller('fortunesList', function ($scope, FortunesProvider, VoteProvider) {
         FortunesProvider.getAll(function (fortunes) {
@@ -17,7 +17,37 @@ app
     })
 
     /**
-     *
+     * TOP10
+     */
+    .controller('fortunesTop', function ($scope, FortunesProvider, VoteProvider) {
+        FortunesProvider.getAll(function (fortunes) {
+            $scope.fortunes = FortunesProvider.orderTop(fortunes, 'top');
+        });
+
+        $scope.vote = function (fortune, vote) {
+            VoteProvider.createVote(vote, fortune, function(vote) {
+                fortune.vote = vote;
+            })
+        }
+    })
+
+    /**
+     * Bad0
+     */
+    .controller('fortunesBad', function ($scope, FortunesProvider, VoteProvider) {
+        FortunesProvider.getAll(function (fortunes) {
+            $scope.fortunes = FortunesProvider.orderTop(fortunes);
+        });
+
+        $scope.vote = function (fortune, vote) {
+            VoteProvider.createVote(vote, fortune, function(vote) {
+                fortune.vote = vote;
+            })
+        }
+    })
+
+    /**
+     * Form to add a new fortune
      */
     .controller('fortunesAdd', function ($rootScope, $scope, $location, FortunesProvider, UserProvider) {
         var users = new Bloodhound({
