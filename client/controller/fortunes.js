@@ -4,7 +4,9 @@ app
     /**
      * List of all fortunes
      */
-    .controller('fortunesList', function ($scope, FortunesProvider, VoteProvider) {
+    .controller('fortunesList', function ($rootScope, $scope, FortunesProvider, VoteProvider) {
+        $rootScope.active = 'index';
+
         FortunesProvider.getAll(function (fortunes) {
             $scope.fortunes = fortunes;
         });
@@ -19,7 +21,9 @@ app
     /**
      * TOP10
      */
-    .controller('fortunesTop', function ($scope, FortunesProvider, VoteProvider) {
+    .controller('fortunesTop', function ($rootScope, $scope, FortunesProvider, VoteProvider) {
+        $rootScope.active = 'top';
+
         FortunesProvider.getAll(function (fortunes) {
             $scope.fortunes = FortunesProvider.orderTop(fortunes, 'top');
         });
@@ -34,7 +38,9 @@ app
     /**
      * Bad0
      */
-    .controller('fortunesBad', function ($scope, FortunesProvider, VoteProvider) {
+    .controller('fortunesBad', function ($rootScope, $scope, FortunesProvider, VoteProvider) {
+        $rootScope.active = 'bad';
+
         FortunesProvider.getAll(function (fortunes) {
             $scope.fortunes = FortunesProvider.orderTop(fortunes);
         });
@@ -50,6 +56,8 @@ app
      * Form to add a new fortune
      */
     .controller('fortunesAdd', function ($rootScope, $scope, $location, FortunesProvider, UserProvider) {
+        $rootScope.active = 'add';
+
         var users = new Bloodhound({
             remote: 'http://localhost:3333/users/%QUERY',
             datumTokenizer: function(d) {
