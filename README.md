@@ -25,8 +25,7 @@ The server run on port 3333 by default, but you can change it :
 	client/config/constants.js (L15)
 	
 ## Now and next
-For now, you can just add fortunes, vote and display existing fortunes. 
-Ordering, ranking and search are not ready to use.
+For now, you can add fortunes, vote and display existing fortunes (date/top/bad).
 
 ### Next update
-The next step is to implement list ordering and ranking.
+The next step is to implement a configuration for ElasticSearch.
